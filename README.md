@@ -1,24 +1,50 @@
-# README
+# Petstagram :cat: :dog: :rabbit: :mouse: :snake:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Makers Academy weekend challenge: build an Instagram clone using Rails. Instructions: you'll need users who can post pictures, write comments on pictures and like a picture. Style it like Instagram's website (or more awesome).
 
-* Ruby version
+## Installation
+* Clone this repo
+* Run bundle install from the command line
+* Run bin/rails db:create and then bin/rails  db:migrate from the command line
 
-* System dependencies
+## Testing
+* Run bundle exec RSpec from the command line
 
-* Configuration
+## Using this app
 
-* Database creation
+* Run bin/rails server and visit http://localhost:3000
 
-* Database initialization
+## User Stories
 
-* How to run the test suite
+```
+As a animal lover
+So that i can see cute photos of animals
+I would like to sign up for an account on Petstagram
 
-* Services (job queues, cache servers, search engines, etc.)
+As a user
+So that I only need to sign up once
+I would like to be able to login to my existing account.
 
-* Deployment instructions
+As a pet owner
+So that I can share pictures of pets
+I would like to be able to post a picture to Petstagram
 
-* ...
+As a user
+So that I can share my opinions on other people's cute pets
+I would like to be able to comment on other pictures.
+
+As a user
+So that I can share my appreciation for cute pets
+I would like to be able to like pictures.
+
+As a user
+So that I can change my mind
+I would like to be able to unlike pictures I have liked.
+```
+
+## Screenshots
+
+## What I learned from this challenge
+
+## What I would like to fix/improve
