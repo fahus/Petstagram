@@ -13,6 +13,8 @@ gem 'sqlite3'
 
 gem 'jquery-rails'
 
+gem 'devise'
+
 gem 'font-awesome-rails'
 
 gem 'puma', '~> 3.11'
