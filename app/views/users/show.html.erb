@@ -15,9 +15,18 @@
         </a>
       </div>
       <ul class="posts">
-        <li><span>20</span> posts</li>
-        <li><span>200</span> followers</li>
-        <li><span>350</span> following</li>
+      <li><span><%= @posts.count %></span> posts</li>
+      <h2 class="name"><%= current_user.name %></h2>
+      <%=link_to current_user.website, current_user.website, class: 'website' %>
+    </div>
+</div>
+</div>
+<% @posts.each do |post|%>
+    <div class="wrapper">
+      <%=image_tag post.image %>
+    </div>
+  <% end %>
+</div>
       </ul>
     </div>
   </div>

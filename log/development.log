@@ -2881,3 +2881,663 @@ Migrating to CreatePosts (20191223210708)
   ↳ bin/rails:9
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6836637524959750305)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateActiveStorageTables (20191224172158)
+  [1m[35m (5.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (400.7ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191224172158_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (16.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/migrate/20191224172158_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (87.9ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  ↳ db/migrate/20191224172158_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/migrate/20191224172158_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/migrate/20191224172158_create_active_storage_tables.active_storage.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (2.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191224172158"]]
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (43.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6836637524959750305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2019-12-24 18:32:04 +0000
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1425.9ms)
+Completed 500 Internal Server Error in 1631ms (ActiveRecord: 63.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `posts_path' for #<#<Class:0x00007fe8c1059298>:0x00007fe8c1062cf8>
+Did you mean?  post_index_path):
+    1: <h1> Homepage </h1>
+    2: <%= form_for Post.new do |f| %>
+    3:   <div class="form-group">
+    4:     <%= f.text_field :description %>
+    5:   </div>
+  
+app/views/home/index.html.erb:2:in `_app_views_home_index_html_erb___4176350093436499799_70318823755880'
+Started GET "/" for ::1 at 2019-12-24 18:33:11 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (312.6ms)
+Completed 500 Internal Server Error in 348ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `posts_path' for #<#<Class:0x00007fe8c1059298>:0x00007fe8c100a620>
+Did you mean?  post_index_path):
+    1: 
+    2: <%= form_for Post.new do |f| %>
+    3:   <div class="form-group">
+    4:     <%= f.text_field :description %>
+    5:   </div>
+  
+app/views/home/index.html.erb:2:in `_app_views_home_index_html_erb___4176350093436499799_70318823594000'
+Started GET "/" for ::1 at 2019-12-24 18:33:35 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (220.3ms)
+Completed 500 Internal Server Error in 232ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `posts_path' for #<#<Class:0x00007fe8c1059298>:0x00007fe8c206d968>
+Did you mean?  post_index_path):
+    1: <%= form_for Post.new do |f| %>
+    2:   <div class="form-group">
+    3:     <%= f.text_field :description %>
+    4:   </div>
+  
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb___4176350093436499799_70318832185540'
+Started GET "/" for ::1 at 2019-12-24 18:34:39 +0000
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (329.3ms)
+Completed 500 Internal Server Error in 401ms (ActiveRecord: 17.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `posts_path' for #<#<Class:0x00007fa457458988>:0x00007fa457461a10>
+Did you mean?  post_index_path):
+    1: <%= form_for Post.new do |f| %>
+    2:   <div class="form-group">
+    3:     <%= f.text_field :description %>
+    4:   </div>
+  
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb___3317246260578524704_70171907771640'
+Started GET "/" for ::1 at 2019-12-24 18:36:50 +0000
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (311.0ms)
+Completed 500 Internal Server Error in 380ms (ActiveRecord: 54.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `posts_path' for #<#<Class:0x00007fb40a923b58>:0x00007fb40a920750>
+Did you mean?  post_index_path):
+    1: <%= form_for Post.new do |f| %>
+    2:   <div class="form-group">
+    3:     <%= f.text_field :description %>
+    4:   </div>
+  
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb__3990527305017641240_70205624075660'
+Started GET "/" for ::1 at 2019-12-24 18:38:10 +0000
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (313.2ms)
+Completed 500 Internal Server Error in 337ms (ActiveRecord: 51.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `posts_path' for #<#<Class:0x00007febd9118c18>:0x00007febd912be58>
+Did you mean?  post_index_path):
+    1: <%= form_for Post.new do |f| %>
+    2:   <div class="form-group">
+    3:     <%= f.text_field :description %>
+    4:   </div>
+  
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb___3474274293028267475_70325467925900'
+Started GET "/" for ::1 at 2019-12-24 18:41:47 +0000
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (202.9ms)
+Completed 500 Internal Server Error in 229ms (ActiveRecord: 54.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     6:     <%= f.file_field :image %>
+     7:   </div>
+     8:   <div class="form-group">
+     9:     <%= f.text_field :user_id, value: current_user.id, class:'d-none'%>
+    10:   </div>
+    11:   <br>
+    12:   <div class="text-center">
+  
+app/views/home/index.html.erb:9:in `block in _app_views_home_index_html_erb__2550683330418855566_70274542731460'
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb__2550683330418855566_70274542731460'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6836637524959750305)[0m
+  ↳ bin/rails:9
+  [1m[35m (19.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (34.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (8.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(6836637524959750305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2019-12-24 18:45:02 +0000
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (154.1ms)
+Completed 500 Internal Server Error in 179ms (ActiveRecord: 56.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     6:     <%= f.file_field :image %>
+     7:   </div>
+     8:   <div class="form-group">
+     9:     <%= f.text_field :user_id, value: current_user.id, class:'d-none'%>
+    10:   </div>
+    11:   <br>
+    12:   <div class="text-center">
+  
+app/views/home/index.html.erb:9:in `block in _app_views_home_index_html_erb___1637963999559430501_70126918505480'
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb___1637963999559430501_70126918505480'
+Started GET "/" for ::1 at 2019-12-24 18:52:25 +0000
+  [1m[35m (20.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+Completed 500 Internal Server Error in 139ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/fayhussein/Petstagram/app/models/post.rb:12: syntax error, unexpected end, expecting end-of-input):
+  
+app/models/post.rb:12: syntax error, unexpected end, expecting end-of-input
+app/controllers/home_controller.rb:3:in `index'
+Started GET "/" for ::1 at 2019-12-24 18:52:45 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (215.1ms)
+Completed 500 Internal Server Error in 347ms (ActiveRecord: 161.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     6:     <%= f.file_field :image %>
+     7:   </div>
+     8:   <div class="form-group">
+     9:     <%= f.text_field :user_id, value: current_user.id, class:'d-none'%>
+    10:   </div>
+    11:   <br>
+    12:   <div class="text-center">
+  
+app/views/home/index.html.erb:9:in `block in _app_views_home_index_html_erb___3594979683034775283_70192006364940'
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb___3594979683034775283_70192006364940'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6836637524959750305)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (43.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6836637524959750305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2019-12-24 18:58:52 +0000
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (98.3ms)
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 60.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     6:     <%= f.file_field :image %>
+     7:   </div>
+     8:   <div class="form-group">
+     9:     <%= f.text_field :user_id, value: current_user.id, class:'d-none'%>
+    10:   </div>
+    11:   <br>
+    12:   <div class="text-center">
+  
+app/views/home/index.html.erb:9:in `block in _app_views_home_index_html_erb___2587533332395674109_70296527655560'
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb___2587533332395674109_70296527655560'
+Started GET "/" for ::1 at 2019-12-24 19:01:12 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     6:     <%= f.file_field :image %>
+     7:   </div>
+     8:     <div class="form-group">
+     9:    <%= f.hidden_field :user_id, :value => @current_user.id %>
+    10:  </div>
+    11:   </div>
+    12:   <br>
+  
+app/views/home/index.html.erb:9:in `block in _app_views_home_index_html_erb___2587533332395674109_70296528546120'
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb___2587533332395674109_70296528546120'
+Started GET "/" for ::1 at 2019-12-24 19:06:02 +0000
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (103.1ms)
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 59.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     6:     <%= f.file_field :image %>
+     7:   </div>
+     8:   <div class="form-group">
+     9:     <%= f.text_field :user_id, value: current_user.id, class:'d-none'%>
+    10:   </div>
+    11:   <br>
+    12:   <div class="text-center">
+  
+app/views/home/index.html.erb:9:in `block in _app_views_home_index_html_erb__2479541914137512732_70364385810840'
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb__2479541914137512732_70364385810840'
+Started GET "/" for ::1 at 2019-12-24 19:28:02 +0000
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mPost Load (15.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/home/index.html.erb:17
+  Rendered home/index.html.erb within layouts/application (1050.2ms)
+Completed 500 Internal Server Error in 1159ms (ActiveRecord: 71.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x00007ffddb94afd0>:0x00007ffddb953f40>
+Did you mean?  @posts):
+    27:       <img src="user_avatar.jpg">
+    28:     </div>
+    29:     <div class="username">
+    30:       <%= post.user.username %>
+    31:     </div>
+    32:   </div>
+    33:   <%= image_tag post.image, class: 'main-image' %>
+  
+app/views/home/index.html.erb:30:in `block in _app_views_home_index_html_erb__4177518436126360314_70364147564840'
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb__4177518436126360314_70364147564840'
+Started GET "/" for ::1 at 2019-12-24 19:29:07 +0000
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/home/index.html.erb:17
+  Rendered home/index.html.erb within layouts/application (43.9ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 9.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<ActiveRecord::Relation []>
+Did you mean?  super):
+    27:       <img src="user_avatar.jpg">
+    28:     </div>
+    29:     <div class="username">
+    30:       <%= @posts.user.username %>
+    31:     </div>
+    32:   </div>
+    33:   <%= image_tag post.image, class: 'main-image' %>
+  
+app/views/home/index.html.erb:30:in `block in _app_views_home_index_html_erb__3448382980082798029_70288438173420'
+app/views/home/index.html.erb:1:in `_app_views_home_index_html_erb__3448382980082798029_70288438173420'
+Started GET "/" for ::1 at 2019-12-24 19:29:48 +0000
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/home/index.html.erb:17
+  Rendered home/index.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 10831ms (Views: 10805.3ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/users/1" for ::1 at 2019-12-24 19:30:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (6.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mPost Load (2.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 324ms (Views: 69.6ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/users/1" for ::1 at 2019-12-24 19:30:07 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 87ms (Views: 81.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1/edit" for ::1 at 2019-12-24 19:30:16 +0000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/edit.html.erb:2
+  Rendered users/edit.html.erb within layouts/application (183.8ms)
+Completed 200 OK in 250ms (Views: 247.8ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/users/1" for ::1 at 2019-12-24 19:30:24 +0000
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g9WkRaJ8gdhR7kv4rtwavwoW1/xB6opyG706v+9S6dvfhIdiWljUfqrYYCFCMbKnuzfclmEajaz2ZIhO500ETg==", "user"=>{"name"=>"Faduma Hussein", "username"=>"ff.hussein", "website"=>"", "bio"=>"", "email"=>"faduma.h@yahoo.com", "phone"=>"", "gender"=>""}, "commit"=>"Submit", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:8
+  [1m[36mUser Update (47.9ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["username", "ff.hussein"], ["updated_at", "2019-12-24 19:30:24.213404"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:8
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:8
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 60ms (ActiveRecord: 52.0ms)
+
+
+Started GET "/users/1" for ::1 at 2019-12-24 19:30:24 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 66ms (Views: 60.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/1" for ::1 at 2019-12-24 19:31:13 +0000
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 1089ms (Views: 856.7ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/users/1" for ::1 at 2019-12-24 19:31:17 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 61ms (Views: 54.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1" for ::1 at 2019-12-24 19:31:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 76ms (Views: 66.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for ::1 at 2019-12-24 19:31:22 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/home/index.html.erb:17
+  Rendered home/index.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 110ms (Views: 105.7ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/posts" for ::1 at 2019-12-24 19:38:09 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ouzp5ldx67ofGutCb7Os3Qdh7Mh8zja8+Rv3DOi7LJmdjt7ecVRPTzLBw0GUeVOTNqiB8rpGmWGUlovIVgJr3g==", "post"=>{"description"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fdccc230040 @tempfile=#<Tempfile:/var/folders/15/prwvrd891mn5dst7dzzz_hp40000gn/T/RackMultipart20191224-67303-18tn1zc.jpg>, @original_filename="bb.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"bb.jpg\"\r\nContent-Type: image/jpeg\r\n">, "user_id"=>"1"}, "commit"=>"Create Post"}
+[36m  Disk Storage (29.6ms) [0m[32mUploaded file to key: ig6wa4PFgGjamUrzE1z7zbD4 (checksum: 23decKqBEmuo1FpAcmCwRQ==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:4
+  [1m[36mActiveStorage::Blob Create (62.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "ig6wa4PFgGjamUrzE1z7zbD4"], ["filename", "bb.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 379492], ["checksum", "23decKqBEmuo1FpAcmCwRQ=="], ["created_at", "2019-12-24 19:38:11.504601"]]
+  ↳ app/controllers/posts_controller.rb:4
+  [1m[35m (42.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:4
+  [1m[36mUser Load (46.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4
+  [1m[36mPost Create (3.5ms)[0m  [1m[32mINSERT INTO "posts" ("description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", ""], ["user_id", 1], ["created_at", "2019-12-24 19:38:11.858851"], ["updated_at", "2019-12-24 19:38:11.858851"]]
+  ↳ app/controllers/posts_controller.rb:4
+  [1m[36mActiveStorage::Attachment Create (5.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Post"], ["record_id", 1], ["blob_id", 1], ["created_at", "2019-12-24 19:38:11.869329"]]
+  ↳ app/controllers/posts_controller.rb:4
+  [1m[36mPost Update (2.5ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = $1 WHERE "posts"."id" = $2[0m  [["updated_at", "2019-12-24 19:38:11.876947"], ["id", 1]]
+  ↳ app/controllers/posts_controller.rb:4
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:4
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: d8876035-9338-4e17-9201-d67df2e54707) to Async(default) with arguments: #<GlobalID:0x00007fdccd1d3c90 @uri=#<URI::GID gid://instagram/ActiveStorage::Blob/1>>
+Redirected to http://localhost:3000/
+Completed 302 Found in 2109ms (ActiveRecord: 256.1ms)
+
+
+Started GET "/" for ::1 at 2019-12-24 19:38:12 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:9
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d8876035-9338-4e17-9201-d67df2e54707] Performing ActiveStorage::AnalyzeJob (Job ID: d8876035-9338-4e17-9201-d67df2e54707) from Async(default) with arguments: #<GlobalID:0x00007fdccc238150 @uri=#<URI::GID gid://instagram/ActiveStorage::Blob/1>>
+  [1m[36mPost Load (115.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/home/index.html.erb:17
+  Rendered home/index.html.erb within layouts/application (143.9ms)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d8876035-9338-4e17-9201-d67df2e54707] [36m  Disk Storage (4.3ms) [0m[34mDownloaded file from key: ig6wa4PFgGjamUrzE1z7zbD4[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d8876035-9338-4e17-9201-d67df2e54707] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d8876035-9338-4e17-9201-d67df2e54707]   [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d8876035-9338-4e17-9201-d67df2e54707]   ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d8876035-9338-4e17-9201-d67df2e54707]   [1m[36mActiveStorage::Blob Update (0.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d8876035-9338-4e17-9201-d67df2e54707]   ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d8876035-9338-4e17-9201-d67df2e54707]   [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d8876035-9338-4e17-9201-d67df2e54707]   ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d8876035-9338-4e17-9201-d67df2e54707] Performed ActiveStorage::AnalyzeJob (Job ID: d8876035-9338-4e17-9201-d67df2e54707) from Async(default) in 339.48ms
+Completed 200 OK in 598ms (Views: 461.1ms | ActiveRecord: 116.4ms)
+
+
+Started GET "/users/1" for ::1 at 2019-12-24 19:38:16 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (162.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (154.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:26
+  Rendered users/show.html.erb within layouts/application (339.7ms)
+Completed 200 OK in 525ms (Views: 192.1ms | ActiveRecord: 319.1ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--aa0e96d5dc02765e13286c046a71d33f506ea416/bb.jpg" for ::1 at 2019-12-24 19:38:16 +0000
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--aa0e96d5dc02765e13286c046a71d33f506ea416", "filename"=>"bb"}
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (85.8ms) [0m[34mGenerated URL for file at key: ig6wa4PFgGjamUrzE1z7zbD4 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRhV2MyZDJFMFVFWm5SMnBoYlZWeWVrVXhlamQ2WWtRMEJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSTNhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlZbUl1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZGlZaTVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMTktMTItMjRUMTk6NDM6MTYuOTk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9587c00a58d5021aa40d52905f2a1521b0c3d2f3/bb.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22bb.jpg%22%3B+filename%2A%3DUTF-8%27%27bb.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRhV2MyZDJFMFVFWm5SMnBoYlZWeWVrVXhlamQ2WWtRMEJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSTNhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlZbUl1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZGlZaTVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMTktMTItMjRUMTk6NDM6MTYuOTk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9587c00a58d5021aa40d52905f2a1521b0c3d2f3/bb.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22bb.jpg%22%3B+filename%2A%3DUTF-8%27%27bb.jpg
+Completed 302 Found in 173ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRhV2MyZDJFMFVFWm5SMnBoYlZWeWVrVXhlamQ2WWtRMEJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSTNhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlZbUl1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZGlZaTVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMTktMTItMjRUMTk6NDM6MTYuOTk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9587c00a58d5021aa40d52905f2a1521b0c3d2f3/bb.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22bb.jpg%22%3B+filename%2A%3DUTF-8%27%27bb.jpg" for ::1 at 2019-12-24 19:38:17 +0000
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"bb.jpg\"; filename*=UTF-8''bb.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRhV2MyZDJFMFVFWm5SMnBoYlZWeWVrVXhlamQ2WWtRMEJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSTNhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlZbUl1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZGlZaTVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMTktMTItMjRUMTk6NDM6MTYuOTk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9587c00a58d5021aa40d52905f2a1521b0c3d2f3", "filename"=>"bb"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-24 19:38:24 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/home/index.html.erb:17
+  Rendered home/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 81ms (Views: 78.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for ::1 at 2019-12-24 19:38:28 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:26
+  Rendered users/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 71ms (Views: 62.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRhV2MyZDJFMFVFWm5SMnBoYlZWeWVrVXhlamQ2WWtRMEJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSTNhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlZbUl1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZGlZaTVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMTktMTItMjRUMTk6NDM6MTYuOTk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9587c00a58d5021aa40d52905f2a1521b0c3d2f3/bb.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22bb.jpg%22%3B+filename%2A%3DUTF-8%27%27bb.jpg" for ::1 at 2019-12-24 19:38:28 +0000
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"bb.jpg\"; filename*=UTF-8''bb.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRhV2MyZDJFMFVFWm5SMnBoYlZWeWVrVXhlamQ2WWtRMEJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSTNhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlZbUl1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZGlZaTVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMTktMTItMjRUMTk6NDM6MTYuOTk0WiIsInB1ciI6ImJsb2Jfa2V5In19--9587c00a58d5021aa40d52905f2a1521b0c3d2f3", "filename"=>"bb"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1/edit" for ::1 at 2019-12-24 19:38:33 +0000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/edit.html.erb:2
+  Rendered users/edit.html.erb within layouts/application (115.5ms)
+Completed 200 OK in 183ms (Views: 178.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/edit" for ::1 at 2019-12-24 19:38:38 +0000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/edit.html.erb:2
+  Rendered users/edit.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 71ms (Views: 67.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1" for ::1 at 2019-12-24 19:38:42 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:26
+  Rendered users/show.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 83ms (Views: 69.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/users/1/edit" for ::1 at 2019-12-24 19:38:49 +0000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/edit.html.erb:2
+  Rendered users/edit.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 113ms (Views: 109.3ms | ActiveRecord: 1.1ms)
+
+
