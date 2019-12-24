@@ -10,16 +10,23 @@
   </div>
   <br>
   <div class="text-center">
-    <%= f.submit 'Create Post', class: 'btn btn-primary' %>
+    <%= f.submit 'Create Post', class: 'btn-btn-primary' %>
   </div>
+<% end %>
 
-  <div class="posts">
+<div class="posts">
   <% @posts.each do |post| %>
     <section class="post">
-      <!-- post view -->
+      <div class="user">
+        AVATAR
+        <div class="username">
+          <%= post.user.username %>
+        </div>
+      </div>
+      <%= image_tag post.image, class: 'main-image' %>
+      <div class="description">
+        <%= post.description %>
+      </div>
     </section>
   <% end %>
 </div>
-  </div>
-</section>
-<% end %>
