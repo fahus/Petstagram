@@ -10,6 +10,7 @@ gem 'pg'
 
 gem 'sqlite3'
 # Use Puma as the app server
+gem 'kaminari'
 
 gem 'jquery-rails'
 
