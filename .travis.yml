@@ -1,14 +1,12 @@
 language: ruby
 rvm:
 - 2.6.0
+
 services:
 - postgresql
+
 before_install:
 - gem install -v 1.17.3 bundler
-
-  cache: bundler
-
-services: postgresql
 
 
 script:
