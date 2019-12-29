@@ -4866,3 +4866,30 @@ puma (3.12.2) lib/puma/server.rb:674:in `handle_request'
 puma (3.12.2) lib/puma/server.rb:476:in `process_client'
 puma (3.12.2) lib/puma/server.rb:334:in `block in run'
 puma (3.12.2) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (7.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6836637524959750305)[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (12.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to ActsAsVotableMigration (20191229210738)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (96.1ms)[0m  [1m[35mCREATE TABLE "votes" ("id" serial NOT NULL PRIMARY KEY, "votable_type" character varying, "votable_id" integer, "voter_type" character varying, "voter_id" integer, "vote_flag" boolean, "vote_scope" character varying, "vote_weight" integer, "created_at" timestamp, "updated_at" timestamp)[0m
+  ↳ db/migrate/20191229210738_acts_as_votable_migration.rb:3
+  [1m[35m (10.9ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_voter_id_and_voter_type_and_vote_scope" ON "votes"  ("voter_id", "voter_type", "vote_scope")[0m
+  ↳ db/migrate/20191229210738_acts_as_votable_migration.rb:15
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_votable_id_and_votable_type_and_vote_scope" ON "votes"  ("votable_id", "votable_type", "vote_scope")[0m
+  ↳ db/migrate/20191229210738_acts_as_votable_migration.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191229210738"]]
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (5.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6836637524959750305)[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/fayhussein/.rvm/gems/ruby-2.6.0/bin/rake:23
