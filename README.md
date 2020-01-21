@@ -30,17 +30,6 @@ As a pet owner
 So that I can share pictures of pets
 I would like to be able to post a picture to Petstagram
 
-As a user
-So that I can share my opinions on other people's cute pets
-I would like to be able to comment on other pictures.
-
-As a user
-So that I can share my appreciation for cute pets
-I would like to be able to like pictures.
-
-As a user
-So that I can change my mind
-I would like to be able to unlike pictures I have liked.
 ```
 
 ## Screenshots
