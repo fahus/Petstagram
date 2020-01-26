@@ -30,10 +30,28 @@ As a pet owner
 So that I can share pictures of pets
 I would like to be able to post a picture to Petstagram
 
-```
+As a user
+So that I can share my opinions on other people's cute pets
+I would like to be able to comment on other pictures.
+As a user
 
-## Screenshots
+So that I can share my appreciation for cute pets
+I would like to be able to like pictures.
+As a user
+
+So that I can change my mind
+I would like to be able to unlike pictures I have liked.
+```
 
 ## What I learned from this challenge
 
+* A deeper understanding of how the Rails MVC model works, and how Rails models, views and controllers interact with each other.
+* I have a better understanding of Active record migrations, and validations
+* How the devise gem and paperclip works - gem I had not used before.
+* Practice with continuous  integration with Travis CI and how to set this up and use in my project.
+
+
+
 ## What I would like to fix/improve
+* I would like to add the feature where users can delete or update their comments/posts
+* I would like to improve the visual output of my program
